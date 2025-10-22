@@ -5,10 +5,12 @@ public class InputManager : MonoBehaviour
     private PlayerInput playerInput;
     private ShipController shipController;
     private BeaconController beaconController;
+    private GameManager gameManager;
     private int index = -1;
 
     private void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         playerInput = GetComponent<PlayerInput>();
         shipController = FindFirstObjectByType<ShipController>();
         beaconController = FindFirstObjectByType<BeaconController>();
@@ -17,27 +19,41 @@ public class InputManager : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (index == 0)
+        if (gameManager.GetSceneIndex() != 0)
         {
-            shipController.SetMoveInput(context.ReadValue<Vector2>());
+            if (index == 0)
+            {
+                shipController.SetMoveInput(context.ReadValue<Vector2>());
+            }
+            else if (index == 1)
+            {
+                beaconController.SetMoveInput(context.ReadValue<Vector2>());
+            }
+            else { Debug.Log("Index outside of player count"); }
         }
-        else if (index == 1)
-        {
-            beaconController.SetMoveInput(context.ReadValue<Vector2>());
-        }
-        else { Debug.Log("Index outside of player count"); }
     }
 
     public void OnTurn(InputAction.CallbackContext context)
     {
-        if (index == 0)
+        if (gameManager.GetSceneIndex() != 0)
         {
-            shipController.SetTurnInput(context.ReadValue<Vector2>());
+            if (index == 0)
+            {
+                shipController.SetTurnInput(context.ReadValue<Vector2>());
+            }
+            else if (index == 1)
+            {
+                beaconController.SetTurnInput(context.ReadValue<Vector2>());
+            }
+            else { Debug.Log("Index outside of player count"); }
         }
-        else if (index == 1)
+    }
+
+    public void OnSelect(InputAction.CallbackContext context)
+    {
+        if (gameManager.GetSceneIndex() == 0)
         {
-            beaconController.SetTurnInput(context.ReadValue<Vector2>());
+            gameManager.StartGame();
         }
-        else { Debug.Log("Index outside of player count"); }
     }
 }
