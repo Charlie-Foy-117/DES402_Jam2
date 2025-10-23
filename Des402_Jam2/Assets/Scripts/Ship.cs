@@ -24,6 +24,6 @@ public class Ship : MonoBehaviour
 
     private void Died()
     {
-        gameManager.EndGame();
+        gameManager.EndGame(false);
     }
 }

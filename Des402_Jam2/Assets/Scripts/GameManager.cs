@@ -27,9 +27,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndGame()
+    public void EndGame(bool win)
     {
         //Time.timeScale = 0; need to disable player controller
+        if (win == true) { Win(); }
+        else { Lose(); }
+
         endScreen.SetActive(true);
         StartCoroutine(StartResetTimer(timeToReset));
     }
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
     private void InitialiseGame()
     {
         if (endScreen == null) { uiManager = FindFirstObjectByType<UIManager>();
-            endScreen = uiManager.endScreen;
+            endScreen = uiManager.GetEndScreen();
         }
     }
 
@@ -62,5 +65,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         ResetGame();
+    }
+
+    private void Win()
+    {
+        uiManager.UpdateEndText(true);
+    }
+    private void Lose()
+    {
+        uiManager.UpdateEndText(false);
     }
 }
