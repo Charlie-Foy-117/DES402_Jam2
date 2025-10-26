@@ -2,30 +2,41 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject endScreen;
-    [SerializeField] private TMPro.TextMeshProUGUI endText;
+    [SerializeField] private GameObject[] endScreen = new GameObject[2];
+    [SerializeField] private TMPro.TextMeshProUGUI[] endText = new TMPro.TextMeshProUGUI[2];
     [SerializeField] private string winText;
     [SerializeField] private string lossText;
 
     private void Start()
     {
-        endScreen.SetActive(false);
+        endScreen[0].SetActive(false);
+        endScreen[1].SetActive(false);
     }
 
-    public GameObject GetEndScreen()
+    public GameObject GetEndScreen(int screenIndex)
     {
-        return endScreen;
+        if (screenIndex > endScreen.Length - 1)
+        {
+            Debug.Log("Screen Index is outside array length");
+            return null; 
+        }
+        else
+        {
+            return endScreen[screenIndex];
+        }
     }
 
     public void SetEndScreen(bool active)
     {
         if (active)
         {
-            endScreen.SetActive(true);
+            endScreen[0].SetActive(true);
+            endScreen[1].SetActive(true);
         }
         else
         {
-            endScreen.SetActive(false);
+            endScreen[0].SetActive(false);
+            endScreen[1].SetActive(false);
         }
     }
 
@@ -33,11 +44,13 @@ public class UIManager : MonoBehaviour
     {
         if (win)
         {
-            endText.text = winText;
+            endText[0].text = winText;
+            endText[1].text = winText;
         }
         else
         {
-            endText.text = lossText;
+            endText[0].text = lossText;
+            endText[1].text = lossText;
         }
     }
 }

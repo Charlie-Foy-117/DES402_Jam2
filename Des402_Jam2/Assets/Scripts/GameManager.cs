@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] private UIManager uiManager;
-    [SerializeField] private GameObject endScreen;
+    [SerializeField] private GameObject[] endScreen = new GameObject[2];
 
     [HideInInspector] public static GameManager Instance { get; private set; }
 
@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
         if (win == true) { Win(); }
         else { Lose(); }
 
-        endScreen.SetActive(true);
+        endScreen[0].SetActive(true);
+        endScreen[1].SetActive(true);
         StartCoroutine(StartResetTimer(timeToReset));
     }
 
@@ -51,8 +52,14 @@ public class GameManager : MonoBehaviour
 
     private void InitialiseGame()
     {
-        if (endScreen == null) { uiManager = FindFirstObjectByType<UIManager>();
-            endScreen = uiManager.GetEndScreen();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (endScreen[0] == null || endScreen[1] == null)
+            {
+                uiManager = FindFirstObjectByType<UIManager>();
+                endScreen[0] = uiManager.GetEndScreen(0);
+                endScreen[1] = uiManager.GetEndScreen(1);
+            }
         }
     }
 

@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToReset: 5
   uiManager: {fileID: 0}
-  endScreen: {fileID: 0}
+  endScreen:
+  - {fileID: 0}
+  - {fileID: 0}
