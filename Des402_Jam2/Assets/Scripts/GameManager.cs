@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+
         // Check if an instance already exists.
         if (Instance != null && Instance != this)
         {
@@ -54,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void InitialiseGame()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             if (endScreen[0] == null || endScreen[1] == null)
             {

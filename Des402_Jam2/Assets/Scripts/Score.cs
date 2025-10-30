@@ -22,6 +22,7 @@ public class Score : MonoBehaviour
     private void AddToScore(int pointsToAdd)
     {
         score += pointsToAdd;
+        uiManager.UpdateScoreText(score);
     }
 
     public void ShipCollide()
@@ -36,8 +37,6 @@ public class Score : MonoBehaviour
             gameTime += Time.deltaTime;
         }
         else { gameManager.EndGame(false); }
-
-        uiManager.UpdateScoreText(score);
     }
 
     IEnumerator DeprecateScore()

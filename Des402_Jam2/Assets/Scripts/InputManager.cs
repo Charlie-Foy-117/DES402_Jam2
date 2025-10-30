@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (gameManager.GetSceneIndex() != 0)
+        if (gameManager.GetSceneIndex() == 2)
         {
             if (index == 0)
             {
@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
 
     public void OnTurn(InputAction.CallbackContext context)
     {
-        if (gameManager.GetSceneIndex() != 0)
+        if (gameManager.GetSceneIndex() == 2)
         {
             if (index == 0)
             {
