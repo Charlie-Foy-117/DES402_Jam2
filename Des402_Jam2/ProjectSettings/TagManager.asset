@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Ship
   - Lighthouse
+  - GameManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Particles
   - Water
   - UI
   - 

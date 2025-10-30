@@ -7,13 +7,23 @@ public class Ship : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] private Camera shipCam;
+    [SerializeField] private GameManager gameManager;
 
+    private void Start()
+    {
+        if (gameManager == null) { gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>(); }
+    }
     public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            Debug.Log("Ship has died");
+            Died();
         }
+    }
+
+    private void Died()
+    {
+        gameManager.EndGame(false);
     }
 }
