@@ -5,6 +5,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float timeToReset;
+    [SerializeField] private float maxGameTime;
+    private bool gamePaused = false;
 
     [Header("Refs")]
     [SerializeField] private UIManager uiManager;
@@ -68,6 +70,16 @@ public class GameManager : MonoBehaviour
         return SceneManager.GetActiveScene().buildIndex;
     }
 
+    public float GetMaxGameTime()
+    {
+        return maxGameTime;
+    }
+
+    public bool GetGamePaused()
+    {
+        return gamePaused;
+    }
+
     IEnumerator StartResetTimer(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
@@ -76,10 +88,12 @@ public class GameManager : MonoBehaviour
 
     private void Win()
     {
+        gamePaused = true;
         uiManager.UpdateEndText(true);
     }
     private void Lose()
     {
+        gamePaused = true;
         uiManager.UpdateEndText(false);
     }
 }

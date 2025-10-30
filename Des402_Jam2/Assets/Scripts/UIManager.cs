@@ -4,6 +4,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] endScreen = new GameObject[2];
     [SerializeField] private TMPro.TextMeshProUGUI[] endText = new TMPro.TextMeshProUGUI[2];
+    [SerializeField] private TMPro.TextMeshProUGUI[] scoreText = new TMPro.TextMeshProUGUI[2];
     [SerializeField] private string winText;
     [SerializeField] private string lossText;
 
@@ -52,5 +53,11 @@ public class UIManager : MonoBehaviour
             endText[0].text = lossText;
             endText[1].text = lossText;
         }
+    }
+
+    public void UpdateScoreText(int score)
+    {
+        scoreText[0].text = score.ToString();
+        scoreText[1].text = score.ToString();
     }
 }

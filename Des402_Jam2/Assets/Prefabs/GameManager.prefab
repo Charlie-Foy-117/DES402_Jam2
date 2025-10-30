@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34939da3891caf04eb7fae54b6fb5f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToReset: 5
+  timeToReset: 15
+  maxGameTime: 120
   uiManager: {fileID: 0}
   endScreen:
   - {fileID: 0}
