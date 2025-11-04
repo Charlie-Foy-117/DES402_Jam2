@@ -1,17 +1,17 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] endScreen = new GameObject[2];
-    [SerializeField] private TMPro.TextMeshProUGUI[] endText = new TMPro.TextMeshProUGUI[2];
+    [SerializeField] private GameObject[] endScreen = new GameObject[4];
     [SerializeField] private TMPro.TextMeshProUGUI[] scoreText = new TMPro.TextMeshProUGUI[2];
-    [SerializeField] private string winText;
-    [SerializeField] private string lossText;
 
     private void Start()
     {
         endScreen[0].SetActive(false);
         endScreen[1].SetActive(false);
+        endScreen[2].SetActive(false);
+        endScreen[3].SetActive(false);
     }
 
     public GameObject GetEndScreen(int screenIndex)
@@ -27,31 +27,21 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetEndScreen(bool active)
+    public void UpdateEndText(bool win)
     {
-        if (active)
+        if (win)
         {
             endScreen[0].SetActive(true);
             endScreen[1].SetActive(true);
+            endScreen[2].SetActive(false);
+            endScreen[3].SetActive(false);
         }
         else
         {
             endScreen[0].SetActive(false);
             endScreen[1].SetActive(false);
-        }
-    }
-
-    public void UpdateEndText(bool win)
-    {
-        if (win)
-        {
-            endText[0].text = winText;
-            endText[1].text = winText;
-        }
-        else
-        {
-            endText[0].text = lossText;
-            endText[1].text = lossText;
+            endScreen[2].SetActive(true);
+            endScreen[3].SetActive(true);
         }
     }
 
