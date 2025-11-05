@@ -404,7 +404,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+      maxColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3989,7 +3989,7 @@ ParticleSystem:
     enter: 0
     exit: 0
     colliderQueryMode: 0
-    radiusScale: 50
+    radiusScale: 70
     primitives:
     - {fileID: 2016277587}
   SubModule:
@@ -6102,7 +6102,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f411c2c566fdaaf4dad450fc690f59f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6131,7 +6131,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016277583}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 6634312075306830287, guid: a1ef7e702c39ee6428059cf084cf03c1, type: 3}
 --- !u!4 &2016277587
 Transform:
   m_ObjectHideFlags: 0
@@ -6141,8 +6141,8 @@ Transform:
   m_GameObject: {fileID: 2016277583}
   serializedVersion: 2
   m_LocalRotation: {x: -0.061048698, y: 0.33963197, z: -0.031194469, w: 0.9380566}
-  m_LocalPosition: {x: 0, y: -54, z: 347}
-  m_LocalScale: {x: 100, y: 100, z: 200}
+  m_LocalPosition: {x: 0, y: -48.5, z: 300}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
